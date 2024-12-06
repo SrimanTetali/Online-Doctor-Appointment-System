@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up - Online Doctor Appointment System</title>
+    <title>Sign In - Online Doctor Appointment System</title>
     <style>
         body {
             margin: 0;
@@ -81,20 +81,20 @@
 </head>
 <body>
     <div class="container">
-        <h1>Sign Up</h1>
+        <h1>Sign In</h1>
         <form>
-            <input type="text" placeholder="Name" required>
-            <input type="email" placeholder="Email" required>
-            <input type="tel" placeholder="Phone" required>
+            <input type="text" placeholder="Phone or Email" required>
             <input type="password" placeholder="Password" required>
-            <input type="password" placeholder="Confirm Password" required>
+            <div class="links">
+                <a href="#">Forgot Password?</a>
+            </div>
             <div class="buttons">
-                <button type="submit">Sign Up</button>
+                <button type="submit">Sign In</button>
                 <button type="reset" class="cancel-btn">Cancel</button>
             </div>
         </form>
         <div class="links">
-            <p>Already have an account? <a href="signin.html">Sign In</a></p>
+            <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
         </div>
     </div>
 </body>
