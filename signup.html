@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Online Doctor Appointment System</title>
+    <title>Sign Up - Online Doctor Appointment System</title>
     <style>
         /* General Styles */
         body {
@@ -59,7 +59,7 @@
         }
 
         button {
-            background-color: #007bff;
+            background-color: #28a745;
             color: #fff;
             border: none;
             padding: 10px;
@@ -70,35 +70,24 @@
         }
 
         button:hover {
-            background-color: #0056b3;
+            background-color: #218838;
         }
 
         .links {
             text-align: center;
         }
 
-        .signup-link {
-            display: inline-block;
-            padding: 10px 15px;
-            background-color: #28a745;
+        .login-btn {
+            background-color: #007bff;
             color: #fff;
-            text-decoration: none;
+            border: none;
+            padding: 10px;
             border-radius: 5px;
-            font-size: 16px;
-            margin-bottom: 10px;
+            cursor: pointer;
         }
 
-        .signup-link:hover {
-            background-color: #218838;
-        }
-
-        .forgot-password {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        .forgot-password:hover {
-            text-decoration: underline;
+        .login-btn:hover {
+            background-color: #0056b3;
         }
 
         footer {
@@ -112,20 +101,25 @@
 <body>
     <div class="container">
         <div class="form-container">
-            <h1>Login</h1>
-            <form action="dashboard.html" method="post" id="loginForm">
-                <label for="emailOrPhone">Email / Phone:</label>
-                <input type="text" id="emailOrPhone" name="emailOrPhone" placeholder="Enter your email or phone" required>
+            <h1>Sign Up</h1>
+            <form action="dashboard.html" method="post" id="signupForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
                 
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <input type="password" id="password" name="password" placeholder="Create a password" required>
                 
-                <button type="submit">Login</button>
+                <button type="submit">Sign up</button>
             </form>
 
             <div class="links">
-                <a href="signup.html" class="signup-link">Sign Up</a>
-                <a href="#" class="forgot-password">Forgot My Password?</a>
+                <button onclick="window.location.href='login.html'" class="login-btn">Back to Login</button>
             </div>
         </div>
     </div>
