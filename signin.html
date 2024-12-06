@@ -30,12 +30,26 @@
             margin-bottom: 20px;
         }
 
+        .input-container {
+            position: relative;
+            margin: 10px 0;
+        }
+
         input {
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
+            padding: 10px 10px 10px 40px; /* Space for left-side icon */
             border: 1px solid #ddd;
             border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .input-container img {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
         }
 
         .buttons {
@@ -83,16 +97,31 @@
     <div class="container">
         <h1>Sign In</h1>
         <form>
-            <input type="text" placeholder="Phone or Email" required>
-            <input type="password" placeholder="Password" required>
-            <div class="links">
+            <!-- Phone or Email Field -->
+            <div class="input-container">
+                <img src="https://img.icons8.com/ios-glyphs/30/null/email.png" alt="Email Icon">
+                <input type="text" placeholder="Phone or Email" required>
+            </div>
+
+            <!-- Password Field -->
+            <div class="input-container">
+                <img src="https://img.icons8.com/ios-glyphs/30/null/lock-2.png" alt="Password Icon">
+                <input type="password" placeholder="Password" required>
+            </div>
+
+            <!-- Forgot Password Link -->
+            <div class="links" style="text-align: left; padding-bottom: 10px;">
                 <a href="#">Forgot Password?</a>
             </div>
+
+            <!-- Buttons -->
             <div class="buttons">
-                <button type="submit">Sign In</button>
+                <button type="submit">Sign in</button>
                 <button type="reset" class="cancel-btn">Cancel</button>
             </div>
         </form>
+
+        <!-- Sign-Up Link -->
         <div class="links">
             <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
         </div>
