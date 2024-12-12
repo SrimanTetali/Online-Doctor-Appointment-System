@@ -16,7 +16,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 30px;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            padding-right: 80px;
+            text-align: center;
             background: rgba(0, 0, 0, 0.5);
             color: white;
             position: fixed;
@@ -36,7 +39,7 @@
         }
 
         /* Hero Section */
-        .hero {
+        .home {
             background-image: url('https://bswh-p-001-delivery.sitecorecontenthub.cloud/api/public/content/6ddd84df68cb4fd7bd86a719cdf8c8ab?v=a682b4c0');
             background-size: cover;
             background-position: center;
@@ -49,17 +52,17 @@
             color: white;
         }
 
-        .hero h1 {
+        .home h1 {
             font-size: 48px;
             margin-bottom: 10px;
         }
 
-        .hero p {
+        .home p {
             font-size: 18px;
             margin-bottom: 20px;
         }
 
-        .hero button {
+        .home button {
             background-color: #007bff;
             color: white;
             padding: 10px 20px;
@@ -69,48 +72,145 @@
             cursor: pointer;
         }
 
-        .hero button:hover {
+        .home button:hover {
             background-color: #0056b3;
         }
 
-        /* Sections */
-        .section {
+        /* Specialties Section */
+        #specialties {
             padding: 50px 20px;
             text-align: center;
+            background-color: #f4f4f4;
         }
 
-        .section h2 {
+        #specialties h2 {
             font-size: 36px;
             margin-bottom: 20px;
         }
 
-        .section p {
+        .specialties-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 20px 0;
+            gap: 20px;
+            position: relative;
+        }
+
+        .specialty {
+            flex: 0 0 calc(20% - 10px);
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 10px;
+        }
+
+        .specialty img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .specialty h3 {
             font-size: 18px;
-            color: #555;
+            margin: 10px 0;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .arrow-left {
+            left: 0;
+        }
+
+        .arrow-right {
+            right: 0;
+        }
+
+        /* services */
+
+        #services {
+            text-align: center;
+        }
+
+        /* Contact */
+
+        #contact {
+            text-align: center;
         }
 
         /* Footer */
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #f4f4f9;
-            color: #777;
+            background-color: #4b4b53;
+            color: #f3ebeb;
         }
     </style>
 </head>
 <body>
     <div class="navbar">
-        <div class="logo">eDoc</div>
+        <div class="logo">Golden Care</div>
         <div>
+            <a href="index.html">Home</a>
+            <a href="">About</a>
             <a href="#services">Services</a>
             <a href="#contact">Contact</a>
+            <a href="signin.html">Login/Register</a>
         </div>
     </div>
 
-    <div class="hero">
+    <div class="home">
         <h1>Avoid Hassles & Delays.</h1>
         <p>How is health today, Sounds like not good! Don't worry. Find your doctor online. Book as you wish with eDoc.</p>
         <button onclick="window.location.href='signin.html'">Make Appointment</button>
+    </div>
+
+    <div id="specialties" class="section">
+        <h2>Our Specialties</h2>
+        <div class="specialties-container">
+            <button class="arrow arrow-left" onclick="scrollLeft()">&#10094;</button>
+            <div class="specialty">
+                <img src="https://www.safehospitalguntur.com/assets/img/services/cardiology.jpg" alt="Cardiology">
+                <h3>Cardiology</h3>
+            </div>
+            <div class="specialty">
+                <img src="https://cdn.prod.website-files.com/6343bf0d9057037ba44d6e95/66212b48248d61d8f189369a_AI-empowered%20dermatology.jpg" alt="Dermatology">
+                <h3>Dermatology</h3>
+            </div>
+            <div class="specialty">
+                <img src="images/pediatrics.jpg" alt="Pediatrics">
+                <h3>Pediatrics</h3>
+            </div>
+            <div class="specialty">
+                <img src="images/Neurology.jpeg" alt="Neurology">
+                <h3>Neurology</h3>
+            </div>
+            <div class="specialty">
+                <img src="images/orthopedics.jpeg" alt="Orthopedics">
+                <h3>Orthopedics</h3>
+            </div>
+            <div class="specialty">
+                <img src="images/Ophthalmology.jpeg" alt="Ophthalmology">
+                <h3>Ophthalmology</h3>
+            </div>
+            <div class="specialty">
+                <img src="images/Gastroenterology.jpeg" alt="Gastroenterology">
+                <h3>Gastroenterology</h3>
+            </div>
+            <button class="arrow arrow-right" onclick="scrollRight()">&#10095;</button>
+        </div>
     </div>
 
     <div id="services" class="section">
@@ -120,11 +220,23 @@
 
     <div id="contact" class="section">
         <h2>Contact Us</h2>
-        <p>For any queries, reach out to us at support@edoc.com or call us at +123 456 7890.</p>
+        <p>For any queries, reach out to us at @gmail.com or call us at +91 6302422108.</p>
     </div>
 
     <footer>
-        &copy; 2023 Online booking Portal
+        &copy; 2024 Online Appointment booking Portal
     </footer>
+
+    <script>
+        function scrollLeft() {
+            const container = document.querySelector('.specialties-container');
+            container.scrollBy({ left: -300, behavior: 'smooth' });
+        }
+
+        function scrollRight() {
+            const container = document.querySelector('.specialties-container');
+            container.scrollBy({ left: 300, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
