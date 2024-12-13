@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .contact-options {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .contact-options .option {
+            text-align: center;
+        }
+
+        .contact-options .option img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+        .contact-options .option a {
+            color: blue;
+            text-decoration: none;
+        }
+
+        form {
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>How can We Help You?</h1>
+
+        <p>If you are a Patient/Doctor or want to Partner with us</p>
+        <p>Contact our customer support team for your queries</p>
+
+        <div class="contact-options">
+            <div class="option email">
+                <img src="email-icon-121.png" alt="Email Icon">
+                <p>Email us at</p>
+                <a href="mailto:support@docgenie.in">support@docgenie.in</a>
+            </div>
+            <div class="option whatsapp">
+                <img src="whatsapp-icon.png" alt="Whatsapp Icon">
+                <p>Whatsapp us at</p>
+                <a href="https://wa.me/+919818093267">+91 9818093267</a>
+                <p>(Team will be available to respond between 9am to 8pm, Monday to Sunday)</p>
+            </div>
+            <div class="option phone">
+                <img src="telephone_16455938.png" alt="Phone Icon">
+                <p>Call us between 9am to 8pm, Mon to Sun at</p>
+                <a href="tel:(011)-41183001">(011)-4118 3001</a>
+            </div>
+        </div>
+
+        <p> or Fill in the form given below.</p>
+
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+
+            <label for="mobile">Mobile number:</label>
+            <input type="tel" id="mobile" name="mobile">
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email">
+
+            <label for="question">How can we help you?</label>
+            <textarea id="question" name="question"></textarea>
+
+            <button type="submit">submit</button>
+        </form>
+    </div>
+</body>
+</html>        
