@@ -11,9 +11,42 @@
             background-image: url('https://t4.ftcdn.net/jpg/08/15/58/65/360_F_815586595_PJGF1V6kQBaUcNHgsx1dbnG7dAwIE2xY.jpg');
             background-size: cover;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #007bff;
         }
 
         .container {
@@ -24,6 +57,7 @@
             max-width: 400px;
             text-align: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-top: 60px;
         }
 
         h1 {
@@ -37,7 +71,7 @@
 
         input {
             width: 100%;
-            padding: 10px 10px 10px 40px; /* Space for the icon */
+            padding: 10px 10px 10px 40px;
             border: 1px solid #ddd;
             border-radius: 5px;
             box-sizing: border-box;
@@ -65,6 +99,7 @@
             color: white;
             border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
         button:hover {
@@ -86,14 +121,74 @@
         .links a {
             text-decoration: none;
             color: #007bff;
+            transition: color 0.3s ease;
         }
 
         .links a:hover {
             text-decoration: underline;
+            color: #0056b3;
         }
+
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer .footer-links {
+            margin: 10px 0;
+        }
+
+        footer .footer-links a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        footer .footer-links a:hover {
+            color: #007bff;
+        }
+
+        footer p {
+            margin: 10px 0 0;
+            font-size: 12px;
+        }
+
+        footer img {
+            width: 30px;
+            height: 30px;
+            margin: 0 5px;
+            vertical-align: middle;
+        }
+
+        footer img:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+
     </style>
 </head>
 <body>
+
+    <div class="navbar">
+        <div class="logo">Golden Life</div>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="#services">Services</a>
+            <a href="contact.html">Contact</a>
+            <a href="signin.html">Login/Register</a>
+        </div>
+    </div>
+
     <div class="container">
         <h1>Register</h1>
         <form>
@@ -126,5 +221,21 @@
             <p>Already have an account? <a href="signin.html">Sign in</a></p>
         </div>
     </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="faq.html">FAQs</a>
+            <a href="terms.html">Terms & Conditions</a>
+        </div>
+        <div>
+            <a href="#"><img src="images/Followus/facebook.png" alt="Facebook" style="border-radius: 10px;"></a>
+            <a href="#"><img src="images/Followus/Twitter.png" alt="Twitter" style="border-radius: 10px;"></a>
+            <a href="#"><img src="images/Followus/instagram.jpeg" alt="Instagram" style="border-radius: 10px;"></a>
+            <a href="#"><img src="images/Followus/linkedin.png" alt="LinkedIn" style="border-radius: 10px;"></a>
+        </div>
+        <p>&copy; 2024 Online Doctor Appointment System. All rights reserved.</p>
+    </footer>
 </body>
 </html>
