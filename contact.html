@@ -71,19 +71,58 @@
             margin-bottom: 20px;
         }
 
-        .contact-info {
-            margin-bottom: 40px;
-        }
+        /* Contact Container Styling */
+.contact-container {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #f4f8fc; /* Light blue background */
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-        .contact-info p {
-            font-size: 16px;
-            margin: 10px 0;
-            color: #555;
-        }
+/* Individual Contact Item Layout */
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 20px 0;
+}
 
-        .contact-info span {
-            font-weight: bold;
-        }
+/* Contact Icons */
+.contact-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+/* Contact Text */
+.contact-details p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+.contact-link {
+    text-decoration: none;
+    font-size: 16px;
+    color: #0078d7; /* Blue for links */
+    font-weight: bold;
+    display: block;
+}
+
+.note {
+    font-size: 12px;
+    color: #555;
+}
+
+/* Horizontal line */
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+}
+
 
         .contact-form {
             display: flex;
@@ -196,14 +235,41 @@
 
     <section id="contact-us">
         <h1>How can We Help You?</h1>
+
+        <p>If you are a Patient/Doctor or want to Partner with us. Contact our customer support team for your queries</p>
         
-        <div class="contact-info">
-            <p>If you are a Patient/Doctor or want to Partner with us</p>
-            <p>Contact our customer support team for your queries</p>
-            <p>Email us at: <span>support@docgenie.in</span></p>
-            <p>Whatsapp us at: <span>+91 9818093267</span></p>
-            <p>Call us: <span>(011)-4118 3001</span></p>
+        <div class="contact-container">
+            <!-- Email Section -->
+            <div class="contact-item">
+                <img src="images/Home/contact/email.jpeg" alt="Email" class="contact-icon">
+                <div class="contact-details">
+                    <p>Email us at</p>
+                    <a href="mailto:support@goldenlife.in" class="contact-link">support@goldenlife.in</a>
+                </div>
+            </div>
+            <hr>
+        
+            <!-- WhatsApp Section -->
+            <div class="contact-item">
+                <img src="images/Home/contact/whatsapp.jpeg" alt="WhatsApp" class="contact-icon">
+                <div class="contact-details">
+                    <p>or WhatsApp us at</p>
+                    <a href="https://wa.me/919898761234" class="contact-link">+91 9898761234</a>
+                    <p class="note">(Team will be available between 9am to 8pm, Monday to Sunday)</p>
+                </div>
+            </div>
+            <hr>
+        
+            <!-- Call Us Section -->
+            <div class="contact-item">
+                <img src="images/Home/contact/phone.jpeg" alt="Phone" class="contact-icon">
+                <div class="contact-details">
+                    <p>or Call us between 9am to 8pm, Mon to Sun at</p>
+                    <a href="tel:(011)-4118 3001" class="contact-link">(011)-4118 3001</a>
+                </div>
+            </div>
         </div>
+        
 
         <form class="contact-form">
             <p>We are here to assist you. Please fill out the form below:</p>
