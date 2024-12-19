@@ -50,19 +50,18 @@
             background-color: #0056b3;
         }
 
-        /* Specialties Section */
-        #specialties {
+        /* Specialties and Services Section */
+        .section {
             padding: 50px 20px;
             text-align: center;
-            background-color: #f4f4f4;
         }
 
-        #specialties h2 {
+        .section h2 {
             font-size: 36px;
             margin-bottom: 20px;
         }
 
-        .specialties-container {
+        .container {
             display: flex;
             overflow-x: auto;
             scroll-behavior: smooth;
@@ -72,7 +71,7 @@
             cursor: grab;
         }
 
-        .specialty {
+        .card {
             flex: 0 0 calc(25% - 10px);
             background-color: white;
             border-radius: 8px;
@@ -81,21 +80,16 @@
             padding: 10px;
         }
 
-        .specialty img {
+        .card img {
             width: 100%;
-            height: 150px;
+            height: 250px;
             object-fit: cover;
             border-radius: 8px 8px 0 0;
         }
 
-        .specialty h3 {
+        .card h3 {
             font-size: 18px;
             margin: 10px 0;
-        }
-
-        /* Services Section */
-        #services {
-            text-align: center;
         }
 
         /* Footer Styles */
@@ -173,41 +167,66 @@
 
     <div id="specialties" class="section">
         <h2>Our Specialties</h2>
-        <div class="specialties-container" id="specialties-container">
-            <div class="specialty">
+        <div class="container" id="specialties-container">
+            <div class="card">
                 <img src="images/Home/specialities/cardiology.jpg" alt="Cardiology">
                 <h3>Cardiology</h3>
             </div>
-            <div class="specialty">
+            <div class="card">
                 <img src="images/Home/specialities/Dermatology.jpeg" alt="Dermatology">
                 <h3>Dermatology</h3>
             </div>
-            <div class="specialty">
+            <div class="card">
                 <img src="images/Home/specialities/pediatrics.jpg" alt="Pediatrics">
                 <h3>Pediatrics</h3>
             </div>
-            <div class="specialty">
+            <div class="card">
                 <img src="images/Home/specialities/Neurology.jpeg" alt="Neurology">
                 <h3>Neurology</h3>
-            </div>
-            <div class="specialty">
-                <img src="images/Home/specialities/orthopedics.jpeg" alt="Orthopedics">
-                <h3>Orthopedics</h3>
-            </div>
-            <div class="specialty">
-                <img src="images/Home/specialities/Ophthalmology.jpeg" alt="Ophthalmology">
-                <h3>Ophthalmology</h3>
-            </div>
-            <div class="specialty">
-                <img src="images/Home/specialities/Gastroenterology.jpeg" alt="Gastroenterology">
-                <h3>Gastroenterology</h3>
             </div>
         </div>
     </div>
 
     <div id="services" class="section">
         <h2>Our Services</h2>
-        <p>We provide a free doctor channeling service with the best specialists. Make your appointment now.</p>
+        <div class="container">
+            <div class="card">
+                <img src="images/Home/services/cold.jpg" alt="Cold, Cough and Fever">
+                <h3>Cold, Cough and Fever</h3>
+            </div>
+            <div class="card">
+                <img src="images/Home/services/BP_Heart.jpg" alt="BP and Heart Problems">
+                <h3>BP and Heart Problems</h3>
+            </div>
+            <div class="card">
+                <img src="" alt="Acne, Pimples and Skin Allergy Issue">
+                <h3>Acne, Pimples and Skin Allergy Issue</h3>
+            </div>
+            <div class="card">
+                <img src="" alt="Child Not Feeling Well">
+                <h3>Child Not Feeling Well</h3>
+            </div>
+            <div class="card">
+                <img src="" alt="Headache, Sleeping and Nerves Problems">
+                <h3>Headache, Sleeping and Nerves Problems</h3>
+            </div>
+            <div class="card">
+                <img src="" alt="Bone and Joint Problems">
+                <h3>Bone and Joint Problems</h3>
+            </div>
+            <div class="card">
+                <img src="" alt="Eye Problems">
+                <h3>Eye Problems</h3>
+            </div>
+            <div class="card">
+                <img src="" alt="Obesity, Gas and Digestion Problems">
+                <h3>Obesity, Gas and Digestion Problems</h3>
+            </div>
+            <div class="card">
+                <img src="" alt="Dental Problems">
+                <h3>Dental Problems</h3>
+            </div>
+        </div>
     </div>
 
     <footer>
@@ -217,9 +236,8 @@
                 <p><strong>Working Hours:</strong> 9:00 AM - 8:00 PM</p>
                 <p><strong>Phone:</strong> <a href="tel:01141183001">011-4118 3001</a></p>
                 <p><strong>WhatsApp:</strong> <a href="https://wa.me/919818093267">+91 9898761234</a></p>
-                <p><strong>Email:</strong> <a href="mailto:support@.goldenlife.in">support@goldenlife.in</a></p>
+                <p><strong>Email:</strong> <a href="mailto:support@goldenlife.in">support@goldenlife.in</a></p>
             </div>
-
             <div class="quick-links">
                 <h4>Quick Links</h4>
                 <ul>
@@ -230,7 +248,6 @@
                     <li><a href="#">Terms & Conditions</a></li>
                 </ul>
             </div>
-
             <div class="online-booking">
                 <h4>Online Booking & Appointments</h4>
                 <ul>
@@ -240,7 +257,6 @@
                     <li><a href="#">Neurology</a></li>
                 </ul>
             </div>
-
             <div class="follow-us">
                 <h4>Follow Us</h4>
                 <div class="social-icons">
