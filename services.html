@@ -6,6 +6,61 @@
     <title>Services</title>
     <link rel="stylesheet" href="Navbar.css">
     <link rel="stylesheet" href="footer.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            margin-top: 50px;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #ecf3f1;
+        }
+        .content {
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .description {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #555;
+        }
+        .dropdown-container {
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        .dropdown {
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 2px 2px #fda752;
+        }
+        .dropdown-summary:hover {
+            background-color: #fda752;
+            color: #fff;
+        }
+        .dropdown-summary {
+            background-color: #f7f7f7;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            border-bottom: 1px solid #ddd;
+        }
+        .dropdown-content {
+            display: none;
+            padding: 10px;
+            background-color: #fff;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
     <div class="navbar">
@@ -19,7 +74,49 @@
         </div>
     </div>
 
+    <div class="content">
+        <h1>Our Medical Services</h1>
+        <p class="description">This page helps people identify what problems the specialists treat. For example, a cardiologist treats heart-related issues and performs surgeries.<br> Click on any dropdown below to view the problems and treatments handled by specialists in each field.</p>
 
+        <div class="dropdown-container">
+            <div class="dropdown">
+                <div class="dropdown-summary" onclick="toggleDropdown(this)">General Physicians</div>
+                <div class="dropdown-content">Content for General Physicians.</div>
+            </div>
+            <div class="dropdown">
+                <div class="dropdown-summary" onclick="toggleDropdown(this)">Cardiology</div>
+                <div class="dropdown-content">Content for Cardiology.</div>
+            </div>
+            <div class="dropdown">
+                <div class="dropdown-summary" onclick="toggleDropdown(this)">Dermatology</div>
+                <div class="dropdown-content">Content for Dermatology.</div>
+            </div>
+            <div class="dropdown">
+                <div class="dropdown-summary" onclick="toggleDropdown(this)">Pediatrics</div>
+                <div class="dropdown-content">Content for Pediatrics.</div>
+            </div>
+            <div class="dropdown">
+                <div class="dropdown-summary" onclick="toggleDropdown(this)">Neurology</div>
+                <div class="dropdown-content">Content for Neurology.</div>
+            </div>
+            <div class="dropdown">
+                <div class="dropdown-summary" onclick="toggleDropdown(this)">Orthopedics</div>
+                <div class="dropdown-content">Content for Orthopedics.</div>
+            </div>
+            <div class="dropdown">
+                <div class="dropdown-summary" onclick="toggleDropdown(this)">Ophthalmology</div>
+                <div class="dropdown-content">Content for Ophthalmology.</div>
+            </div>
+            <div class="dropdown">
+                <div class="dropdown-summary" onclick="toggleDropdown(this)">Gastroenterology</div>
+                <div class="dropdown-content">Content for Gastroenterology.</div>
+            </div>
+            <div class="dropdown">
+                <div class="dropdown-summary" onclick="toggleDropdown(this)">Dental Problems</div>
+                <div class="dropdown-content">Content for Dental Problems.</div>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <div class="footer-links">
@@ -36,5 +133,21 @@
         </div>
         <p>&copy; 2024 Online Doctor Appointment System. All rights reserved.</p>
     </footer>
+
+    <script>
+        function toggleDropdown(element) {
+            // Close any open dropdowns
+            const allDropdowns = document.querySelectorAll('.dropdown-content');
+            allDropdowns.forEach((dropdown) => {
+                if (dropdown !== element.nextElementSibling) {
+                    dropdown.style.display = 'none';
+                }
+            });
+
+            // Toggle the current dropdown
+            const content = element.nextElementSibling;
+            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
 </body>
 </html>
