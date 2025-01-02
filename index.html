@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Online Doctor Appointment System</title>
     <link rel="stylesheet" href="Navbar.css">
+    <script src="/navbar.js"></script>
     <style>
         /* General Styles */
         body {
@@ -12,7 +13,7 @@
             font-family: Arial, sans-serif;
         }
 
-        /* Hero Section */
+        /* Home Section */
         .home {
             background-image:url("images/Home/HomeBg.png");
             background-size: cover;
@@ -160,7 +161,7 @@
     </div>
 
     <div class="home">
-        <h1>Avoid Hassles & Delays.</h1>
+        <h1>Your Health, No Waiting, No Hassles</h1>
         <p>How is health today? Sounds like not good! Don't worry. Find your doctor online. Book as you wish with eDoc.</p>
         <button onclick="window.location.href='signin.html'">Make Appointment</button>
     </div>
@@ -253,7 +254,7 @@
             <div class="quick-links">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="/about.html">About Us</a></li>
                     <li><a href="#">Our Blog</a></li>
                     <li><a href="#">FAQs</a></li>
                     <li><a href="#">Privacy Policy</a></li>
@@ -280,8 +281,21 @@
             </div>
         </div>
         <hr>
-        <p style="text-align: center; padding-top: 10px;">&copy; 2024 Online Doctor Appointment Booking System. All rights reserved.</p>
+        <p style="text-align: center; padding-top: 10px;">&copy; 2025 Online Doctor Appointment Booking System. All rights reserved.</p>
         <p style="text-align: center;">Designed with care for better healthcare.</p>
     </footer>
 </body>
+<script>
+
+    // Make Appointment Button
+    document.getElementById('make-appointment').addEventListener('click', () => {
+        window.location.href = 'signin.html';
+    });
+
+    
+    // Open social media links in a new tab
+    document.querySelectorAll('.social-icons a').forEach(link => {
+        link.setAttribute('target', '_blank');
+    });
+</script>
 </html>
