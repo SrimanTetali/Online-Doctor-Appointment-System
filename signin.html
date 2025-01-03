@@ -6,7 +6,88 @@
     <title>Sign In - Online Doctor Appointment System</title>
     <link rel="stylesheet" href="Navbar.css">
     <link rel="stylesheet" href="footer.css">
-    <script src="/navbar.js"></script>
+    <script>
+        // Form Validation and Submission
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.querySelector('form');
+            const emailInput = document.querySelector('input[type="text"]');
+            const passwordInput = document.querySelector('input[type="password"]');
+            const feedback = document.createElement('div');
+
+            feedback.style.marginTop = '5px';
+            emailInput.parentNode.appendChild(feedback);
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const emailOrPhone = emailInput.value;
+                const password = passwordInput.value;
+
+                if (!emailOrPhone || (!validateEmail(emailOrPhone) && !validatePhone(emailOrPhone))) {
+                    alert('Please enter a valid email or phone number.');
+                    return;
+                }
+
+                if (password.length < 6) {
+                    alert('Password must be at least 6 characters long.');
+                    return;
+                }
+
+                alert(`Form submitted successfully!\nDetails:\nEmail/Phone: ${emailOrPhone}\nPassword: ${password}`);
+            });
+
+            emailInput.addEventListener('input', () => {
+                if (validateEmail(emailInput.value) || validatePhone(emailInput.value)) {
+                    feedback.textContent = 'Valid input!';
+                    feedback.style.color = 'green';
+                } else {
+                    feedback.textContent = 'Enter a valid email or phone.';
+                    feedback.style.color = 'red';
+                }
+            });
+
+            // Reset Confirmation
+            document.querySelector('button[type="reset"]').addEventListener('click', (e) => {
+                const confirmReset = confirm('Are you sure you want to reset the form?');
+                if (!confirmReset) e.preventDefault();
+            });
+
+            // Show/Hide Password
+            const togglePassword = document.createElement('span');
+            togglePassword.textContent = '👁️';
+            togglePassword.style.cursor = 'pointer';
+            togglePassword.style.position = 'absolute';
+            togglePassword.style.top = '50%';
+            togglePassword.style.right = '10px';
+            togglePassword.style.transform = 'translateY(-50%)';
+
+            togglePassword.addEventListener('click', () => {
+                const type = passwordInput.type === 'password' ? 'text' : 'password';
+                passwordInput.type = type;
+                togglePassword.textContent = type === 'password' ? '👁️' : '🙈';
+            });
+
+            const passwordContainer = document.querySelector('.input-container:nth-child(2)');
+            passwordContainer.style.position = 'relative';
+            passwordContainer.appendChild(togglePassword);
+
+            // Forgot Password Alert
+            document.querySelector('.links a').addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('A password reset feature will be implemented here!');
+            });
+
+            function validateEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+
+            function validatePhone(phone) {
+                const phoneRegex = /^\d{10}$/; // Example for a 10-digit number.
+                return phoneRegex.test(phone);
+            }
+        });
+    </script>
     <style>
         body {
             margin: 0;
@@ -19,12 +100,6 @@
             align-items: center;
             min-height: 100vh;
         }
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-        }
-
 
         .container {
             background: rgba(255, 255, 255, 0.9);
@@ -105,13 +180,9 @@
             text-decoration: underline;
             color: #0056b3;
         }
-
-        
-      
     </style>
 </head>
 <body>
-
     <div class="navbar">
         <div class="logo">Golden Life</div>
         <div>
