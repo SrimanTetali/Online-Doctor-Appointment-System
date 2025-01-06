@@ -6,150 +6,17 @@
     <title>Sign Up - Online Doctor Appointment System</title>
     <link rel="stylesheet" href="Navbar.css">
     <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="signup.css">
     <script src="/navbar.js"></script>
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-image: url('https://t4.ftcdn.net/jpg/08/15/58/65/360_F_815586595_PJGF1V6kQBaUcNHgsx1dbnG7dAwIE2xY.jpg');
-            background-size: cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+        .error-message {
+            color: red;
+            font-size: 0.9rem;
+            margin-top: 5px;
         }
-
-
-        .container {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            margin-top: 60px;
-        }
-
-        h1 {
-            margin-bottom: 20px;
-        }
-
-        .input-container {
-            position: relative;
-            margin: 10px 0;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px 10px 10px 40px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-
-        .input-container img {
-            position: absolute;
-            top: 50%;
-            left: 10px;
-            transform: translateY(-50%);
-            width: 20px;
-            height: 20px;
-        }
-
-        .buttons {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        button {
-            width: 48%;
-            padding: 10px;
-            background-color: #007bff;
-            border: none;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        .cancel-btn {
-            background-color: #dc3545;
-        }
-
-        .cancel-btn:hover {
-            background-color: #c82333;
-        }
-
-        .links {
-            margin-top: 20px;
-        }
-
-        .links a {
-            text-decoration: none;
-            color: #007bff;
-            transition: color 0.3s ease;
-        }
-
-        .links a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        /* footer {
-            background: #343a40;;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            width: 100%;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        footer .footer-links {
-            margin: 10px 0;
-        }
-
-        footer .footer-links a {
-            color: white;
-            margin: 0 10px;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s ease;
-        }
-
-        footer .footer-links a:hover {
-            color: #007bff;
-        }
-
-        footer p {
-            margin: 10px 0 0;
-            font-size: 12px;
-        }
-
-        footer img {
-            width: 30px;
-            height: 30px;
-            margin: 0 5px;
-            vertical-align: middle;
-        }
-
-        footer img:hover {
-            transform: scale(1.1);
-            transition: transform 0.3s ease;
-        } */
-
     </style>
 </head>
 <body>
-
     <div class="navbar">
         <div class="logo">Golden Life</div>
         <div>
@@ -163,26 +30,31 @@
 
     <div class="container">
         <h1>Register</h1>
-        <form>
+        <form id="signupForm">
             <div class="input-container">
                 <img src="https://img.icons8.com/ios-glyphs/30/null/user--v1.png" alt="Name Icon">
-                <input type="text" placeholder="Name" required>
+                <input type="text" id="name" placeholder="Name" required>
             </div>
             <div class="input-container">
                 <img src="https://img.icons8.com/ios-glyphs/30/null/email.png" alt="Email Icon">
-                <input type="email" placeholder="Email" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <span id="emailError" class="error-message"></span>
             </div>
             <div class="input-container">
                 <img src="https://img.icons8.com/ios-glyphs/30/null/phone.png" alt="Phone Icon">
-                <input type="tel" placeholder="Phone" required>
+                <input type="tel" id="phone" placeholder="Phone" required>
+                <span id="phoneError" class="error-message"></span>
             </div>
             <div class="input-container">
                 <img src="https://img.icons8.com/ios-glyphs/30/null/lock-2.png" alt="Password Icon">
-                <input type="password" placeholder="Password" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <img src="https://img.icons8.com/ios-glyphs/30/null/visible.png" class="toggle-password" alt="Toggle Password">
             </div>
-            <div class="input-container" style="padding-bottom: 10px;">
+            <div class="input-container">
                 <img src="https://img.icons8.com/ios-glyphs/30/null/lock-2.png" alt="Confirm Password Icon">
-                <input type="password" placeholder="Confirm Password" required>
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                <img src="https://img.icons8.com/ios-glyphs/30/null/visible.png" class="toggle-password" alt="Toggle Confirm Password">
+                <span id="passwordError" class="error-message"></span>
             </div>
             <div class="buttons">
                 <button type="submit">Sign up</button>
@@ -209,5 +81,80 @@
         </div>
         <p>&copy; 2025 Online Doctor Appointment System. All rights reserved.</p>
     </footer>
+
+    <script>
+        const emailInput = document.getElementById('email');
+        const phoneInput = document.getElementById('phone');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirmPassword');
+        const emailError = document.getElementById('emailError');
+        const phoneError = document.getElementById('phoneError');
+        const passwordError = document.getElementById('passwordError');
+        const signupForm = document.getElementById('signupForm');
+
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        const phonePattern = /^[0-9]{10}$/;
+
+        // Real-time email validation
+        emailInput.addEventListener('blur', () => {
+            if (!emailPattern.test(emailInput.value)) {
+                emailError.textContent = 'Invalid email format!';
+            } else {
+                emailError.textContent = '';
+            }
+        });
+
+        // Real-time phone validation
+        phoneInput.addEventListener('blur', () => {
+            if (!phonePattern.test(phoneInput.value)) {
+                phoneError.textContent = 'Phone number must be 10 digits!';
+            } else {
+                phoneError.textContent = '';
+            }
+        });
+
+        // Real-time password confirmation
+        confirmPasswordInput.addEventListener('blur', () => {
+            if (passwordInput.value !== confirmPasswordInput.value) {
+                passwordError.textContent = 'Passwords do not match!';
+            } else {
+                passwordError.textContent = '';
+            }
+        });
+
+        // Toggle password visibility
+        const togglePasswordIcons = document.querySelectorAll('.toggle-password');
+        togglePasswordIcons.forEach(icon => {
+            icon.addEventListener('click', () => {
+                const input = icon.previousElementSibling;
+                input.type = input.type === 'password' ? 'text' : 'password';
+                icon.src = input.type === 'password'
+                    ? 'https://img.icons8.com/ios-glyphs/30/null/visible.png'
+                    : 'https://img.icons8.com/ios-glyphs/30/null/invisible.png';
+            });
+        });
+
+        // Form submission
+        signupForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            if (
+                emailError.textContent === '' &&
+                phoneError.textContent === '' &&
+                passwordError.textContent === '' &&
+                emailInput.value &&
+                phoneInput.value &&
+                passwordInput.value &&
+                confirmPasswordInput.value
+            ) {
+                alert(`Name: ${document.getElementById('name').value}
+Email: ${emailInput.value}
+Phone: ${phoneInput.value}
+Form submitted successfully!`);
+            } else {
+                alert('Please fix the errors before submitting.');
+            }
+        });
+    </script>
 </body>
 </html>
