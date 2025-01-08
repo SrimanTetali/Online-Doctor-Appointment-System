@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In/Sign Up - Online Doctor Appointment System</title>
+    <link rel="stylesheet" href="Navbar.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="icon" href="data:,">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://t4.ftcdn.net/jpg/08/15/58/65/360_F_815586595_PJGF1V6kQBaUcNHgsx1dbnG7dAwIE2xY.jpg');
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-top: 60px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .input-container {
+            position: relative;
+            margin: 10px 0;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px 10px 10px 40px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .input-container img {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        button {
+            width: 48%;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .cancel-btn {
+            background-color: #dc3545;
+        }
+
+        .cancel-btn:hover {
+            background-color: #c82333;
+        }
+
+        .links {
+            margin-top: 20px;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: #007bff;
+            transition: color 0.3s ease;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+            color: #0056b3;
+        }
+
+        .form-toggle {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .form-toggle p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .toggle-btn {
+            background: none;
+            border: 2px solid #007bff;
+            color: #007bff;
+            cursor: pointer;
+            padding: 8px 20px;
+            margin: 0 5px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            width: auto;
+        }
+
+        .toggle-btn:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        #signupForm {
+            display: none;
+        }
+
+        .form-title {
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo">Golden Life</div>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+            <a href="signin.html">Login/Register</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Sign In Form -->
+        <form id="signinForm">
+            <h2 class="form-title">Sign In</h2>
+            <div class="input-container">
+                <img src="https://img.icons8.com/ios-glyphs/30/null/email.png" alt="Email Icon">
+                <input type="text" id="signinemail" placeholder="Email" required>
+            </div>
+
+            <div class="input-container">
+                <img src="https://img.icons8.com/ios-glyphs/30/null/lock-2.png" alt="Password Icon">
+                <input type="password" id="signinpassword" placeholder="Password" required>
+            </div>
+
+            <div class="links" style="text-align: left; padding-bottom: 10px;">
+                <a href="#" style="padding-bottom: 8px;">Forgot Password?</a>
+            </div>
+
+            <div class="buttons">
+                <button type="submit">Sign in</button>
+                <button type="reset" class="cancel-btn">Cancel</button>
+            </div>
+
+            <!-- Toggle Button for Sign In Form -->
+            <div class="form-toggle">
+                <p>Don't have an account?</p>
+                <button type="button" class="toggle-out">Sign Up</button>
+            </div>
+        </form>
+
+        <!-- Sign Up Form -->
+        <form id="signupForm">
+            <h2 class="form-title">Sign Up</h2>
+            <div class="input-container">
+                <img src="https://img.icons8.com/ios-glyphs/30/null/user.png" alt="User Icon">
+                <input type="text" id="name" placeholder="Full Name" required>
+            </div>
+
+            <div class="input-container">
+                <img src="https://img.icons8.com/ios-glyphs/30/null/email.png" alt="Email Icon">
+                <input type="email" id="email" placeholder="Email" required>
+                <span id="emailError" class="error-message"></span>
+            </div>
+
+            <div class="input-container">
+                <img src="https://img.icons8.com/ios-glyphs/30/null/phone.png" alt="Phone Icon">
+                <input type="tel" id="phone" placeholder="Phone Number" required>
+                <span id="phoneError" class="error-message"></span>
+            </div>
+
+            <div class="input-container">
+                <img src="https://img.icons8.com/ios-glyphs/30/null/lock-2.png" alt="Password Icon">
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+
+            <div class="input-container">
+                <img src="https://img.icons8.com/ios-glyphs/30/null/lock-2.png" alt="Confirm Password Icon">
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+            </div>
+
+            <div class="buttons">
+                <button type="submit" id="signupbutton">Sign up</button>
+                <button type="reset" class="cancel-btn">Cancel</button>
+            </div>
+
+            <!-- Toggle Button for Sign Up Form -->
+            <div class="form-toggle">
+                <p>Already have an account?</p>
+                <button type="button" class="toggle-in">Sign In</button>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="faq.html">FAQs</a>
+            <a href="terms.html">Terms & Conditions</a>
+        </div>
+        <div>
+            <a href="#"><img src="images/Followus/facebook.png" alt="Facebook" style="border-radius: 10px;"></a>
+            <a href="#"><img src="images/Followus/Twitter.png" alt="Twitter" style="border-radius: 10px;"></a>
+            <a href="#"><img src="images/Followus/instagram.jpeg" alt="Instagram" style="border-radius: 10px;"></a>
+            <a href="#"><img src="images/Followus/linkedin.png" alt="LinkedIn" style="border-radius: 10px;"></a>
+        </div>
+        <p>&copy; 2025 Online Doctor Appointment System. All rights reserved.</p>
+    </footer>
+
+    <script type="module">
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
+
+        // Initialize Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyCiFKW9gvlQSRP6ZVCPMq02NQLnkV69Iag",
+            authDomain: "doctorappointment-8f969.firebaseapp.com",
+            projectId: "doctorappointment-8f969",
+            storageBucket: "doctorappointment-8f969.appspot.com",
+            messagingSenderId: "999415391434",
+            appId: "1:999415391434:web:3a38456740cb1ca5d08033"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const database = getFirestore(app);
+
+        // Handle form submission
+        const signinform = document.getElementById("signinForm");
+        signinform.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const signinemail = document.getElementById("signinemail").value.trim();
+            const signinpassword = document.getElementById("signinpassword").value.trim();
+
+            try {
+                // Authenticate user with Firebase Authentication
+                const userCredential = await signInWithEmailAndPassword(auth, signinemail, signinpassword);
+                alert("Login successful!");
+                console.log("Logged in user:", userCredential.user);
+                // Redirect or perform additional actions if necessary
+            } catch (error) {
+                if (error.code === "auth/user-not-found") {
+                    alert("No user found with this email.");
+                } else if (error.code === "auth/wrong-password") {
+                    alert("Incorrect password. Please try again.");
+                } else {
+                    alert("Error signing in: " + error.message);
+                }
+            }
+        });
+
+        const signupForm = document.getElementById("signupForm");
+        signupForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const password = document.getElementById("password").value;
+
+            try {
+                // Register user
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+
+                // Store user details in Firestore
+                await addDoc(collection(database, "userdetails"), {
+                    uid: user.uid,
+                    name,
+                    email,
+                    phone,
+                    createdAt: new Date(),
+                });
+
+                alert("Registration Successful!");
+            } catch (error) {
+                if (error.code === 'auth/email-already-in-use') {
+                    alert('Email is already in use. Please use a different email.');
+                } else if (error.code === 'auth/invalid-email') {
+                    alert('Invalid email address.');
+                } else if (error.code === 'auth/weak-password') {
+                    alert('Weak password. Password must be at least 6 characters.');
+                } else {
+                    alert('An error occurred: ' + error.message);
+                }
+            }
+
+        })
+
+        let inn = document.querySelector(".toggle-in")
+        let out = document.querySelector(".toggle-out")
+        inn.addEventListener("click", () => {
+            const signinForm = document.getElementById('signinForm');
+            const signupForm = document.getElementById('signupForm');
+            signinForm.style.display = 'block';
+            signupForm.style.display = 'none';
+        })
+
+        out.addEventListener("click", () => {
+            const signinForm = document.getElementById('signinForm');
+            const signupForm = document.getElementById('signupForm');
+            signinForm.style.display = 'none';
+            signupForm.style.display = 'block';
+        })
+
+    </script>
+</body>
+
+</html>
