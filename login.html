@@ -140,6 +140,22 @@
             color: #333;
             font-size: 24px;
         }
+
+        .toggle-icon {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .toggle-icon:hover {
+            opacity: 1;
+        }
     </style>
 </head>
 
@@ -167,6 +183,8 @@
             <div class="input-container">
                 <img src="https://img.icons8.com/ios-glyphs/30/null/lock-2.png" alt="Password Icon">
                 <input type="password" id="signinpassword" placeholder="Password" required>
+                <img src="https://img.icons8.com/material-rounded/24/000000/visible.png" alt="Toggle Visibility"
+                    class="toggle-icon">
             </div>
 
             <div class="links" style="text-align: left; padding-bottom: 10px;">
@@ -208,11 +226,15 @@
             <div class="input-container">
                 <img src="https://img.icons8.com/ios-glyphs/30/null/lock-2.png" alt="Password Icon">
                 <input type="password" id="password" placeholder="Password" required>
+                <img src="https://img.icons8.com/material-rounded/24/000000/visible.png" alt="Toggle Visibility"
+                    class="toggle-icon">
             </div>
 
             <div class="input-container">
                 <img src="https://img.icons8.com/ios-glyphs/30/null/lock-2.png" alt="Confirm Password Icon">
                 <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                <img src="https://img.icons8.com/material-rounded/24/000000/visible.png" alt="Toggle Visibility"
+                    class="toggle-icon">
             </div>
 
             <div class="buttons">
@@ -324,9 +346,7 @@
                     alert('An error occurred: ' + error.message);
                 }
             }
-
         })
-
         let inn = document.querySelector(".toggle-in")
         let out = document.querySelector(".toggle-out")
         inn.addEventListener("click", () => {
@@ -343,7 +363,22 @@
             signupForm.style.display = 'block';
         })
 
+        // Add event listeners to all toggle icons
+        document.querySelectorAll('.toggle-icon').forEach((icon) => {
+            icon.addEventListener('click', () => {
+                // Find the associated input field (previous sibling)
+                const passwordField = icon.previousElementSibling;
+
+                // Toggle the input type
+                if (passwordField.type === 'password') {
+                    passwordField.type = 'text';
+                    icon.src = "https://img.icons8.com/material-rounded/24/000000/invisible.png"; // Change to 'hide' icon
+                } else {
+                    passwordField.type = 'password';
+                    icon.src = "https://img.icons8.com/material-rounded/24/000000/visible.png"; // Change to 'show' icon
+                }
+            });
+        });
     </script>
 </body>
-
 </html>
