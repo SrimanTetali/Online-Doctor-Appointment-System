@@ -379,6 +379,35 @@
                 }
             });
         });
+
+        // Email Validation
+const emailInput = document.getElementById("email");
+const emailError = document.getElementById("emailError");
+
+emailInput.addEventListener("blur", () => {
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!emailRegex.test(emailInput.value)) {
+        emailError.textContent = "Enter a valid email ID";
+        emailError.style.color = "red";
+    } else {
+        emailError.textContent = ""; // Clear the error message
+    }
+});
+
+// Phone Number Validation
+const phoneInput = document.getElementById("phone");
+const phoneError = document.getElementById("phoneError");
+
+phoneInput.addEventListener("blur", () => {
+    const phoneRegex = /^\d{10}$/;
+    if (!phoneRegex.test(phoneInput.value)) {
+        phoneError.textContent = "Phone number must be exactly 10 digits";
+        phoneError.style.color = "red";
+    } else {
+        phoneError.textContent = ""; // Clear the error message
+    }
+});
+
     </script>
 </body>
 </html>
