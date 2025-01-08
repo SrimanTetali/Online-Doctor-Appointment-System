@@ -270,7 +270,7 @@
 
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
         import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
-        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
+        import { getFirestore, collection, addDoc, doc, getDocs, query, where } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
 
         // Initialize Firebase
         const firebaseConfig = {
@@ -286,6 +286,12 @@
         const auth = getAuth(app);
         const database = getFirestore(app);
 
+        const adminDetails = [
+            { email: "tetalisriman@gmail.com", password: "sri12345" },
+            { email: "ramesh123@gmail.com", password: "ramesh123" }
+        ];
+
+
         // Handle form submission
         const signinform = document.getElementById("signinForm");
         signinform.addEventListener("submit", async (e) => {
@@ -294,12 +300,33 @@
             const signinemail = document.getElementById("signinemail").value.trim();
             const signinpassword = document.getElementById("signinpassword").value.trim();
 
+            // Check if the user is an admin
+            const isAdmin = adminDetails.find(admin => admin.email === signinemail && admin.password === signinpassword);
+
             try {
                 // Authenticate user with Firebase Authentication
                 const userCredential = await signInWithEmailAndPassword(auth, signinemail, signinpassword);
-                alert("Login successful!");
-                console.log("Logged in user:", userCredential.user);
-                // Redirect or perform additional actions if necessary
+                const user = userCredential.user;
+
+                // Query Firestore to get user details from the "userdetails" collection
+                const userCollection = collection(database, "userdetails");
+                const q = query(userCollection, where("email", "==", signinemail));  // Query to match the email
+                const querySnapshot = await getDocs(q);
+
+                if (!querySnapshot.empty) {
+                    // If user exists in the collection
+                    const userDoc = querySnapshot.docs[0]; // We expect one match based on unique email
+                    const userName = userDoc.data().name; // Assuming 'name' field exists in Firestore
+
+                    // Alert messages based on admin or patient role
+                    if (isAdmin) {
+                        alert(`Login successful and welcome admin, ${userName}!`);
+                    } else {
+                        alert(`Login successful and welcome patient, ${userName}!`);
+                    }
+                } else {
+                    alert("User details not found in the database.");
+                }
             } catch (error) {
                 if (error.code === "auth/user-not-found") {
                     alert("No user found with this email.");
@@ -310,7 +337,6 @@
                 }
             }
         });
-
         const signupForm = document.getElementById("signupForm");
         signupForm.addEventListener("submit", async (e) => {
             e.preventDefault();
@@ -381,33 +407,34 @@
         });
 
         // Email Validation
-const emailInput = document.getElementById("email");
-const emailError = document.getElementById("emailError");
+        const emailInput = document.getElementById("email");
+        const emailError = document.getElementById("emailError");
 
-emailInput.addEventListener("blur", () => {
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    if (!emailRegex.test(emailInput.value)) {
-        emailError.textContent = "Enter a valid email ID";
-        emailError.style.color = "red";
-    } else {
-        emailError.textContent = ""; // Clear the error message
-    }
-});
+        emailInput.addEventListener("blur", () => {
+            const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailRegex.test(emailInput.value)) {
+                emailError.textContent = "Enter a valid email ID";
+                emailError.style.color = "red";
+            } else {
+                emailError.textContent = ""; // Clear the error message
+            }
+        });
 
-// Phone Number Validation
-const phoneInput = document.getElementById("phone");
-const phoneError = document.getElementById("phoneError");
+        // Phone Number Validation
+        const phoneInput = document.getElementById("phone");
+        const phoneError = document.getElementById("phoneError");
 
-phoneInput.addEventListener("blur", () => {
-    const phoneRegex = /^\d{10}$/;
-    if (!phoneRegex.test(phoneInput.value)) {
-        phoneError.textContent = "Phone number must be exactly 10 digits";
-        phoneError.style.color = "red";
-    } else {
-        phoneError.textContent = ""; // Clear the error message
-    }
-});
+        phoneInput.addEventListener("blur", () => {
+            const phoneRegex = /^\d{10}$/;
+            if (!phoneRegex.test(phoneInput.value)) {
+                phoneError.textContent = "Phone number must be exactly 10 digits";
+                phoneError.style.color = "red";
+            } else {
+                phoneError.textContent = ""; // Clear the error message
+            }
+        });
 
     </script>
 </body>
+
 </html>
